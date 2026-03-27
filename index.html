@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Full Stack Developer & Designer Portfolio - Showcasing innovative web and mobile applications">
+  <meta name="keywords" content="web developer, mobile apps, full stack, portfolio, designer">
+  <meta name="author" content="Your Name">
+
+  <meta property="og:title" content="Professional Portfolio - Full Stack Developer" />
+  <meta property="og:description"
+    content="Full Stack Developer and Designer portfolio showcasing mobile apps, web projects, and professional achievements" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@YourHandle" />
+  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+  <title>Portfolio - Full Stack Developer & Designer</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome 6 for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: 222 47% 11%;
+      --foreground: 213 31% 91%;
+      --card: 224 71% 4%;
+      --card-foreground: 213 31% 91%;
+      --primary: 42 45% 72%;
+      --primary-foreground: 222 47% 11%;
+      --secondary: 35 35% 28%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 223 47% 11%;
+      --muted-foreground: 215 12% 72%;
+      --accent: 216 34% 17%;
+      --accent-foreground: 210 40% 98%;
+      --border: 35 25% 22%;
+      --gradient-primary: linear-gradient(135deg, hsl(42, 45%, 78%), hsl(35, 38%, 58%));
+      --shadow-glow: 0 0 30px rgba(198, 169, 107, 0.22);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 2rem;
+      }
+    }
+
+    .text-gradient {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.6s ease-out forwards;
+    }
+
+    #navbar {
+      position: fixed;
+      top: 28px;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+      background-color: transparent;
+    }
+
+    #navbar.scrolled {
+      background-color: hsla(var(--card), 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: left;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      height: 88px;
+      column-gap: 1.5rem;
+    }
+
+    .logo-link {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      display: block;
+      width: 400px;
+      max-width: 100%;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 0.5rem;
+      justify-self: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+      color: hsl(var(--primary));
+      background-color: hsl(var(--muted));
+    }
+
+    .contact-btn {
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: var(--shadow-glow);
+      display: none;
+      justify-self: end;
+    }
+
+    @media (min-width: 768px) {
+      .contact-btn {
+        display: block;
+      }
+    }
+
+    .contact-btn:hover {
+      background-color: hsl(var(--primary) / 0.9);
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      justify-self: end;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    .hamburger {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: hsl(var(--foreground));
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: hsl(var(--foreground));
+      transition: var(--transition-smooth);
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .mobile-menu-btn.active .hamburger {
+      background-color: transparent;
+    }
+
+    .mobile-menu-btn.active .hamburger::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .mobile-menu-btn.active .hamburger::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid hsl(var(--border));
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-link:hover {
+      color: hsl(var(--primary));
+      background-color: hsl(var(--muted));
+    }
+
+    .contact-btn.mobile {
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 150px;
+      padding-bottom: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-content {
+      opacity: 0;
+      animation: slideUp 0.8s ease-out 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.875rem);
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      background-color: hsl(var(--primary) / 0.9);
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      background-color: hsl(var(--card));
+      border: 2px solid hsl(var(--primary));
+      color: hsl(var(--primary));
+    }
+
+    .btn-secondary:hover {
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+    }
+
+    .hero-image {
+      opacity: 0;
+      animation: slideUp 0.8s ease-out 0.4s forwards;
+    }
+
+    .image-wrapper {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .image-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .profile-img {
+      position: relative;
+      width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px hsla(0, 0%, 0%, 0.3);
+      border: 4px solid hsla(var(--primary), 0.2);
+      transition: transform 0.5s ease;
+      border-radius: 50%;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 6rem 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding: 6rem 2rem;
+      }
+    }
+
+    .mobile-apps-section {
+      background-color: hsla(var(--muted), 0.3);
+    }
+
+    .testimonials-section {
+      background-color: hsla(var(--muted), 0.3);
+    }
+
+    .contact-section {
+      background-color: hsla(var(--muted), 0.3);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .mobile-apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-apps-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .app-card {
+      opacity: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: hsl(var(--card));
+      box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .app-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 40px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .app-image-wrapper {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+    }
+
+    .app-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    .web-projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .web-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+    }
+
+    .project-card {
+      opacity: 0;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background-color: hsl(var(--card));
+      box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 40px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .project-image-wrapper {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+
+    .project-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .project-card:hover .project-image-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .testimonial-card {
+      opacity: 0;
+      background-color: hsl(var(--card));
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+      border: 1px solid hsl(var(--border));
+      transition: var(--transition-smooth);
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 40px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .star {
+      color: hsl(var(--secondary));
+      font-size: 1.25rem;
+    }
+
+    .testimonial-text {
+      color: hsl(var(--foreground));
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .flag {
+      width: 40px;
+      height: auto;
+      
+    }
+
+    .author-info h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: hsl(var(--foreground));
+      margin-bottom: 0.25rem;
+    }
+
+    .author-info p {
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+    }
+
+    .certificate-card {
+      opacity: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: hsl(var(--card));
+      box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .certificate-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 40px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .certificate-image-wrapper {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .certificate-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 25px;
+      transition: transform 0.7s ease;
+    }
+
+    .certificate-card:hover .certificate-image-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .contact-container {
+      max-width: 1100px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info>div>p {
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 2rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-method {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      padding: 0.75rem;
+      background-color: hsla(var(--primary), 0.1);
+      border-radius: 0.5rem;
+      color: hsl(var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-method h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-method p {
+      color: hsl(var(--muted-foreground));
+    }
+
+    .contact-form-wrapper {
+      background-color: hsl(var(--card));
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.1);
+      border: 1px solid hsl(var(--border));
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.75rem;
+      background-color: hsl(var(--background));
+      border: 1px solid hsl(var(--border));
+      border-radius: 0.5rem;
+      color: hsl(var(--foreground));
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: hsl(var(--primary));
+      box-shadow: 0 0 0 3px hsla(var(--primary), 0.1);
+    }
+
+    .form-group textarea {
+      resize: none;
+    }
+
+    .submit-btn {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      display: none;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .form-message.success {
+      display: block;
+      background-color: hsla(142, 71%, 45%, 0.1);
+      color: hsl(142, 71%, 45%);
+      border: 1px solid hsl(142, 71%, 45%);
+    }
+
+    .form-message.error {
+      display: block;
+      background-color: hsla(0, 84%, 60%, 0.1);
+      color: hsl(0, 84%, 60%);
+      border: 1px solid hsl(0, 84%, 60%);
+    }
+
+    .footer {
+      background-color: hsl(var(--card));
+      border-top: 1px solid hsl(var(--border));
+      padding: 3rem 1rem 1.5rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand img {
+      display: block;
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand p {
+      color: hsl(var(--muted-foreground));
+      font-size: 0.9rem;
+    }
+
+    .footer-links h4,
+    .footer-social h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: hsl(var(--foreground));
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-links a {
+      color: hsl(var(--muted-foreground));
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: hsl(var(--primary));
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: hsl(var(--muted-foreground));
+      transition: var(--transition-smooth);
+      font-size: 1.5rem;
+    }
+
+    .social-links a:hover {
+      color: hsl(var(--primary));
+      transform: scale(1.1);
+    }
+
+    .payment-footer-btn {
+      background: linear-gradient(135deg, rgba(198, 169, 107, 0.2), rgba(198, 169, 107, 0.1));
+      border: 1px solid hsl(var(--primary));
+      color: hsl(var(--primary));
+      border-radius: 50px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+    }
+
+    .payment-footer-btn:hover {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid hsl(var(--border));
+      text-align: center;
+      color: hsl(var(--muted-foreground));
+      font-size: 0.875rem;
+    }
+
+    /* Enhanced Modal Styles - Two Rows with Line Between */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-container {
+      background: linear-gradient(135deg, hsl(var(--card)), hsl(223, 76%, 18%));
+      max-width: 900px;
+      width: 90%;
+      border-radius: 2rem;
+      padding: 0;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px hsla(var(--primary), 0.2);
+      position: relative;
+      transform: scale(0.96);
+      transition: transform 0.25s ease;
+      overflow: hidden;
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, hsla(var(--primary), 0.15), transparent);
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid hsla(var(--primary), 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-header h3 i {
+      -webkit-text-fill-color: initial;
+      color: hsl(var(--primary));
+      font-size: 1.6rem;
+    }
+
+    .close-modal {
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: hsl(var(--muted-foreground));
+      transition: var(--transition-smooth);
+      line-height: 1;
+    }
+
+    .close-modal:hover {
+      color: hsl(var(--primary));
+      transform: rotate(90deg);
+    }
+
+    /* Payment methods grid - 2 rows, 3 columns */
+    .payment-methods-grid {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .payment-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .row-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0.5rem 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, hsl(var(--primary)), hsl(var(--primary)), transparent);
+    }
+
+    .divider-icon {
+      margin: 0 1rem;
+      color: hsl(var(--primary));
+      font-size: 0.8rem;
+    }
+
+    .payment-item {
+      background: hsla(var(--muted), 0.4);
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      transition: all 0.2s ease;
+      border: 1px solid hsla(var(--primary), 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .payment-item:hover {
+      background: hsla(var(--primary), 0.15);
+      border-color: hsl(var(--primary));
+      transform: translateY(-4px);
+    }
+
+    .payment-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .payment-icon-large {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, hsla(var(--primary), 0.25), hsla(var(--secondary), 0.25));
+      border-radius: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: hsl(var(--primary));
+    }
+
+    .payment-details {
+      flex: 1;
+    }
+
+    .payment-method-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: hsl(var(--foreground));
+      margin-bottom: 0.5rem;
+    }
+
+    .payment-value {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: hsl(var(--muted-foreground));
+      letter-spacing: 0.3px;
+      word-break: break-all;
+      background: hsla(var(--background), 0.5);
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.5rem;
+      display: inline-block;
+    }
+
+    .copy-btn {
+      background: hsla(var(--primary), 0.2);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      color: hsl(var(--primary));
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .copy-btn:hover {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      transform: scale(1.02);
+    }
+
+    .copy-btn.copied {
+      background: #10b981;
+      color: white;
+    }
+
+    .modal-footer-note {
+      padding: 1rem 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: hsl(var(--muted-foreground));
+      border-top: 1px solid hsla(var(--border), 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .modal-footer-note i {
+      color: hsl(var(--primary));
+    }
+
+    .review {
+      text-align: center;
+      margin-top: 2rem;
+      font-family: var(--font-display);
+    }
+
+    .review a {
+      color: hsl(var(--primary));
+      text-decoration: none;
+    }
+
+    .review a:hover {
+      text-decoration: underline;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        grid-template-columns: auto 1fr auto;
+        height: 78px;
+      }
+
+      .logo-img {
+        width: 160px;
+        height: 40px;
+      }
+
+      .hero-section {
+        padding-top: 135px;
+        padding-bottom: 3rem;
+      }
+
+      .payment-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .payment-methods-grid {
+        padding: 1.5rem;
+      }
+
+      .modal-container {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo-link"><img src="logo.png" alt="Logo" class="logo-img"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#mobile-apps" class="nav-link">Mobile Apps</a>
+        <a href="#web-projects" class="nav-link">Web Projects</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+      </div>
+      <button class="contact-btn" onclick="scrollToSection('#contact')">Contact Me</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#mobile-apps" class="mobile-link">Mobile Apps</a>
+      <a href="#web-projects" class="mobile-link">Web Projects</a>
+      <a href="#testimonials" class="mobile-link">Testimonials</a>
+      <a href="#certificates" class="mobile-link">Certificates</a>
+      <button class="contact-btn mobile" onclick="scrollToSection('#contact')">Contact Me</button>
+    </div>
+  </nav>
+
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content animate-slide-up">
+          <h1 class="hero-title">Hello, I'm <span class="text-gradient">Mohamed Ouf</span></h1>
+          <h2 class="hero-subtitle">Creative Developer, Designer, Data Analyst & Performance Marketer</h2>
+          <p class="hero-description">I create digital solutions that look great and deliver results. I
+            combine web development, creative design, social media content, YouTube thumbnail design, media
+            buying, and data analysis to help brands grow with clarity and strategy, with a strong
+            background in international marketing.</p>
+          <div class="hero-buttons">
+            <a href="#mobile-apps" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-image animate-slide-up">
+          <div class="image-wrapper">
+            <div class="image-glow"></div>
+            <img src="BA.jpg" alt="Profile" class="profile-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mobile-apps" class="mobile-apps-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Mobile <span class="text-gradient">Applications</span></h2>
+        <p class="section-description">Innovative mobile solutions that deliver exceptional user experiences</p>
+      </div>
+      <div class="mobile-apps-grid">
+        <div class="app-card">
+          <div class="title">
+            <h3>Neftar -A</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="https://neftar-a.netlify.app/" target="_blank"><img
+                src="mobile/neftar-a.svg" alt="Work Breakfast"></a></div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>FC-365</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="https://fc365.netlify.app/" target="_blank"><img
+                src="mobile/fc365.png" alt="Friends Cup"></a></div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>Cash Counter -EG</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="https://funny-money.netlify.app/" target="_blank"><img
+                src="mobile/funnymoney.svg" alt="Cash Counter"></a></div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>Al-Azkar</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="#" target="_blank"><img src="mobile/azkar.svg" alt="Al-Azkar"></a>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>Vodafone Guide</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="https://vf-guide.netlify.app/" target="_blank"><img
+                src="mobile/vf-rg.svg" alt="Vodafone Guide"></a></div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>Retail Audit</h3>
+          </div>
+          <div class="app-image-wrapper"><img src="mobile/storeaudit.png" alt="Retail Audit"></div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>Coffee Shop</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="https://cafeexpress.myeasyorders.com/" target="_blank"><img
+                src="mobile/coffee shop.png" alt="Coffee Shop"></a></div>
+        </div>
+        <div class="app-card">
+          <div class="title">
+            <h3>My Tasks</h3>
+          </div>
+          <div class="app-image-wrapper"><a href="https://day-to-do-app.netlify.app/" target="_blank"><img
+                src="mobile/todo.png" alt="To do list"></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="web-projects" class="web-projects-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Web <span class="text-gradient">Projects</span></h2>
+        <p class="section-description">Full-featured web applications built with modern technologies</p>
+      </div>
+      <div class="web-projects-grid">
+        <div class="project-card">
+          <div class="project-image-wrapper"><a href="https://zefreight-eg.com/" target="_blank"><img
+                src="web/zerfreight.png" alt="Zefreight"></a></div>
+        </div>
+        <div class="project-card">
+          <div class="project-image-wrapper"><a href="https://nawaya.shop/" target="_blank"><img src="web/Nawayshop.png"
+                alt="Nawaya shop"></a></div>
+        </div>
+        <div class="project-card">
+          <div class="project-image-wrapper"><a href="https://sakaniuae.com/" target="_blank"><img src="web/sakani.png"
+                alt="Sakani UAE"></a></div>
+        </div>
+        <div class="project-card">
+          <div class="project-image-wrapper"><a href="https://cafeexpress.myeasyorders.com/" target="_blank"><img
+                src="web/coffee.png" alt="Cafe Express"></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Client <span class="text-gradient">Testimonials</span></h2>
+        <p class="section-description">What my clients say about working with me</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"This seller did was incredibly easy to work with. I felt that I didn't
+            provide enough information for the project and they completed it beautifully regardless."</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/us.png" class="flag">
+            <div class="author-info">
+              <h4>Hirshleff</h4>
+              <p>United States</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Very happy with seller. Was able to help me at short notice with good
+            work."</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/gb.png" class="flag">
+            <div class="author-info">
+              <h4>chuck</h4>
+              <p>United Kingdom</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Very efficient communication. Job well delivered and on time. Very
+            professional."</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/es.png" class="flag">
+            <div class="author-info">
+              <h4>Emma Williams</h4>
+              <p>Spain</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Mohamed delivered a great questionnaire and was able to interview the
+            number of people we asked him to."</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/ma.png" class="flag">
+            <div class="author-info">
+              <h4>namyrcom</h4>
+              <p>Morocco</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Awesome Form maker. Very very cool. Thank you for your time. Will use
+            again."</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/au.png" class="flag">
+            <div class="author-info">
+              <h4>arainima</h4>
+              <p>Australia</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Very professional, attentive and fast turn around. Met all the
+            deadlines."</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/us.png" class="flag">
+            <div class="author-info">
+              <h4>Bmore</h4>
+              <p>United States</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"محترف في برامج قواعد البيانات وملتزم بالتفاصيل، تمنياتي بالتوفيق"</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/bh.png" class="flag">
+            <div class="author-info">
+              <h4>Ali Alsayed</h4>
+              <p>Bahrain</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Great job! Thanks a lot"</p>
+          <div class="testimonial-author"><img src="https://flagcdn.com/w40/ua.png" class="flag">
+            <div class="author-info">
+              <h4>Tezmac</h4>
+              <p>Ukraine</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="review">See All Testimonials click <a href="https://www.fiverr.com/mohamedouf?public_mode=true"
+          target="_blank">here</a></p>
+    </div>
+  </section>
+
+  <section id="certificates" class="certificates-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Certifications & <span class="text-gradient">Achievements</span></h2>
+        <p class="section-description">Professional credentials and recognitions</p>
+      </div>
+      <div class="certificates-grid">
+        <div class="certificate-card">
+          <div class="certificate-image-wrapper"><img src="Cer/html.png" alt="HTML"></div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-image-wrapper"><img src="Cer/js.png" alt="JavaScript"></div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-image-wrapper"><img src="Cer/php.png" alt="PHP"></div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-image-wrapper"><img src="Cer/mcp.png" alt="MCP"></div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-image-wrapper"><img src="Cer/oracle.png" alt="Oracle"></div>
+        </div>
+        <div class="certificate-card">
+          <div class="certificate-image-wrapper"><img src="Cer/ms.png" alt="Microsoft"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container contact-container">
+      <div class="section-header">
+        <h2 class="section-title">Get in <span class="text-gradient">Touch</span></h2>
+        <p class="section-description">Have a project in mind? Let's work together to bring your ideas to life
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div>
+            <h3>Let's Connect</h3>
+            <p>Feel free to reach out for collaborations, opportunities, or just a friendly chat.</p>
+          </div>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email</h4>
+                <p>Oufico@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h4>Phone</h4>
+                <p>+2 (010) 3090-1500</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>Location</h4>
+                <p>Alexandria, Egypt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <form action="https://formspree.io/f/xpqoayye"
+  method="POST">
+            <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name"
+                placeholder="Your name" required></div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email"
+                placeholder="your.email@example.com" required></div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message"
+                placeholder="Tell me about your project..." required rows="5"></textarea>
+            </div><button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+          </form>
+          <div id="formMessage" class="form-message"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-brand"><img src="logo.png" alt="Logo" style="max-width: 180px; height: auto;">
+          <p>Building digital experiences that matter</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4><a href="#home">Home</a><a href="#mobile-apps">Mobile Apps</a><a href="#web-projects">Web
+            Projects</a><a href="#testimonials">Testimonials</a>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-links"><a href="https://github.com/mouf78" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/mohamed-ouf-6ab67720/"
+              aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/mohamed.ouf.5891/" aria-label="Facebook" target="_blank"><i
+                class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/mouf1978/" aria-label="Instagram" target="_blank"><i
+                class="fab fa-instagram"></i></a><a href="https://www.behance.net/mohamedouf3" aria-label="Behance" target="_blank"><i class="fab fa-behance"></i></a>
+          </div><button id="paymentModalBtn" class="payment-footer-btn"><i class="fas fa-credit-card"></i> Method of
+            Payment</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Portfolio. All rights reserved. © 2025 – Created by | Mohamed Ouf</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Payment Modal - Two Rows with Line Between -->
+  <div id="paymentModal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fas fa-coins"></i> Payment Methods</h3><button class="close-modal"
+          id="closeModalBtn">&times;</button>
+      </div>
+      <div class="payment-methods-grid">
+        <!-- Row 1: First 3 items -->
+        <div class="payment-row">
+          <div class="payment-item">
+            <div class="payment-info">
+              <div class="payment-icon-large"><i class="fab fa-paypal"></i></div>
+              <div class="payment-details">
+                <div class="payment-method-name">PayPal</div>
+                <div class="payment-value">mohamed.ouf.eg@gmail.com</div>
+              </div>
+            </div>
+            <button class="copy-btn" data-copy="mohamed.ouf.eg@gmail.com"><i class="far fa-copy"></i>
+              Copy</button>
+          </div>
+          <div class="payment-item">
+            <div class="payment-info">
+              <div class="payment-icon-large"><i class="fas fa-mobile-alt"></i></div>
+              <div class="payment-details">
+                <div class="payment-method-name">Instapay</div>
+                <div class="payment-value">01010703000</div>
+              </div>
+            </div>
+            <button class="copy-btn" data-copy="01010703000"><i class="far fa-copy"></i> Copy</button>
+          </div>
+          <div class="payment-item">
+            <div class="payment-info">
+              <div class="payment-icon-large"><i class="fas fa-sim-card"></i></div>
+              <div class="payment-details">
+                <div class="payment-method-name">Vodafone Cash</div>
+                <div class="payment-value">01030901500</div>
+              </div>
+            </div>
+            <button class="copy-btn" data-copy="01030901500"><i class="far fa-copy"></i> Copy</button>
+          </div>
+        </div>
+        <!-- Divider Line between rows -->
+        <div class="row-divider">
+          <span class="divider-line"></span>
+          <i class="fas fa-credit-card divider-icon"></i>
+          <span class="divider-line"></span>
+        </div>
+        <!-- Row 2: Last 3 items -->
+        <div class="payment-row">
+          <div class="payment-item">
+            <div class="payment-info">
+              <div class="payment-icon-large"><i class="fas fa-university"></i></div>
+              <div class="payment-details">
+                <div class="payment-method-name">IBAN</div>
+                <div class="payment-value">EG710037001508181130107038318</div>
+              </div>
+            </div>
+            <button class="copy-btn" data-copy="EG710037001508181130107038318"><i class="far fa-copy"></i>
+              Copy</button>
+          </div>
+          <div class="payment-item">
+            <div class="payment-info">
+              <div class="payment-icon-large"><i class="fas fa-code-branch"></i></div>
+              <div class="payment-details">
+                <div class="payment-method-name">Swift Code / BIC</div>
+                <div class="payment-value">QNBAEGCXXXX</div>
+              </div>
+            </div>
+            <button class="copy-btn" data-copy="QNBAEGCXXXX"><i class="far fa-copy"></i> Copy</button>
+          </div>
+          <div class="payment-item">
+            <div class="payment-info">
+              <div class="payment-icon-large"><i class="fas fa-dollar-sign"></i></div>
+              <div class="payment-details">
+                <div class="payment-method-name">USD Account</div>
+                <div class="payment-value">11304987261-32</div>
+              </div>
+            </div>
+            <button class="copy-btn" data-copy="11304987261-32"><i class="far fa-copy"></i> Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-note"><i class="fas fa-lock"></i> Secure payment details — click copy to clipboard
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollToSection(selector) { const element = document.querySelector(selector); if (element) { element.scrollIntoView({ behavior: 'smooth' }); const mobileMenu = document.getElementById('mobileMenu'); const mobileMenuBtn = document.getElementById('mobileMenuBtn'); if (mobileMenu && mobileMenu.classList.contains('active')) { mobileMenu.classList.remove('active'); mobileMenuBtn.classList.remove('active'); } } }
+    let lastScrollTop = 0; const navbar = document.getElementById('navbar'); window.addEventListener('scroll', () => { const scrollTop = window.pageYOffset || document.documentElement.scrollTop; if (scrollTop > 20) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); lastScrollTop = scrollTop; });
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn'); const mobileMenu = document.getElementById('mobileMenu'); if (mobileMenuBtn) { mobileMenuBtn.addEventListener('click', () => { mobileMenuBtn.classList.toggle('active'); mobileMenu.classList.toggle('active'); }); }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const targetId = this.getAttribute('href'); scrollToSection(targetId); }); });
+    const modal = document.getElementById('paymentModal'); const openBtn = document.getElementById('paymentModalBtn'); const closeModalBtn = document.getElementById('closeModalBtn'); function openModalFunc() { if (modal) modal.classList.add('active'); } function closeModalFunc() { if (modal) modal.classList.remove('active'); } if (openBtn) openBtn.addEventListener('click', openModalFunc); if (closeModalBtn) closeModalBtn.addEventListener('click', closeModalFunc); if (modal) { modal.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); }); } document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal?.classList.contains('active')) closeModalFunc(); });
+    const copyButtons = document.querySelectorAll('.copy-btn'); copyButtons.forEach(btn => { btn.addEventListener('click', async (e) => { e.stopPropagation(); const textToCopy = btn.getAttribute('data-copy'); if (textToCopy) { try { await navigator.clipboard.writeText(textToCopy); const originalText = btn.innerHTML; btn.innerHTML = '<i class="fas fa-check"></i> Copied!'; btn.classList.add('copied'); setTimeout(() => { btn.innerHTML = originalText; btn.classList.remove('copied'); }, 2000); } catch (err) { console.error('Copy failed:', err); } } }); });
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { if (entry.target.classList.contains('app-card')) { const cards = entry.target.parentElement.querySelectorAll('.app-card'); cards.forEach((card, index) => setTimeout(() => { card.style.opacity = '1'; card.style.animation = `slideUp 0.6s ease-out forwards`; }, index * 100)); } else if (entry.target.classList.contains('project-card')) { const cards = entry.target.parentElement.querySelectorAll('.project-card'); cards.forEach((card, index) => setTimeout(() => { card.style.opacity = '1'; card.style.animation = `slideUp 0.6s ease-out forwards`; }, index * 150)); } else if (entry.target.classList.contains('testimonial-card')) { const cards = entry.target.parentElement.querySelectorAll('.testimonial-card'); cards.forEach((card, index) => setTimeout(() => { card.style.opacity = '1'; card.style.animation = `slideUp 0.6s ease-out forwards`; }, index * 100)); } else if (entry.target.classList.contains('certificate-card')) { const cards = entry.target.parentElement.querySelectorAll('.certificate-card'); cards.forEach((card, index) => setTimeout(() => { card.style.opacity = '1'; card.style.animation = `slideUp 0.6s ease-out forwards`; }, index * 100)); } observer.unobserve(entry.target); } }); }, observerOptions); document.addEventListener('DOMContentLoaded', () => { const firstApp = document.querySelector('.app-card'); if (firstApp) observer.observe(firstApp); const firstProject = document.querySelector('.project-card'); if (firstProject) observer.observe(firstProject); const firstTestimonial = document.querySelector('.testimonial-card'); if (firstTestimonial) observer.observe(firstTestimonial); const firstCert = document.querySelector('.certificate-card'); if (firstCert) observer.observe(firstCert); });
+    const contactForm = document.getElementById('contactForm'); const formMessage = document.getElementById('formMessage'); if (contactForm) { contactForm.addEventListener('submit', async (e) => { e.preventDefault(); const submitBtn = contactForm.querySelector('button[type="submit"]'); const originalBtnText = submitBtn.textContent; const name = document.getElementById('name')?.value.trim(); const email = document.getElementById('email')?.value.trim(); const message = document.getElementById('message')?.value.trim(); if (!name) { showFormMessage('Name is required', 'error'); return; } if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showFormMessage('Please enter a valid email address', 'error'); return; } if (!message || message.length < 10) { showFormMessage('Message must be at least 10 characters', 'error'); return; } submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; await new Promise(resolve => setTimeout(resolve, 1000)); showFormMessage('Message sent successfully! I\'ll get back to you soon.', 'success'); contactForm.reset(); submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }); } function showFormMessage(message, type) { if (formMessage) { formMessage.textContent = message; formMessage.className = `form-message ${type}`; setTimeout(() => { formMessage.className = 'form-message'; }, 5000); } }
+  </script>
+</body>
+
+</html>
