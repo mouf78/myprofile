@@ -389,6 +389,96 @@
       animation: slideUp 0.8s ease-out 0.4s forwards;
     }
 
+    .tech-icons-row {
+      margin: 1.1rem auto 2rem;
+      padding: 0.45rem 0.3rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: center;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      min-height: 76px;
+      max-height: 88px;
+      width: min(100%, 920px);
+      border-radius: 1rem;
+      background: hsla(var(--card), 0.12);
+      border: 1px solid hsla(var(--foreground), 0.12);
+      box-shadow: 0 10px 30px hsla(0,0%,0%,0.08);
+      backdrop-filter: blur(2px);
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tech-icons-row::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .tech-icons-row::-webkit-scrollbar-thumb {
+      background: hsla(var(--foreground), 0.35);
+      border-radius: 999px;
+    }
+
+    .icon-separator {
+      margin: 0.75rem auto 0.8rem;
+      width: 85%;
+      max-width: 920px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0) 100%);
+      opacity: 0.5;
+      border-radius: 999px;
+    }
+
+    .tech-icons-note {
+      text-align: center;
+      color: #C8AD82;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      opacity: 0.92;
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.5;
+      font-weight: 600;
+      text-shadow: 0 0 8px rgba(200, 173, 130, 0.45);
+    }
+
+    .tech-icon {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: hsla(var(--card), 0.5);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 15px hsla(0, 0%, 0%, 0.15);
+      border: 1px solid hsla(var(--foreground), 0.18);
+      opacity: 0.6;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+    }
+
+    .tech-icon:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px hsla(0, 0%, 0%, 0.3);
+      opacity: 1;
+    }
+
+    .tech-icon img {
+      width: 46px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
+      transition: transform 0.25s ease;
+    }
+
+    .tech-icon:hover img {
+      transform: scale(1.1);
+    }
+    
+
     .image-wrapper {
       position: relative;
       max-width: 500px;
@@ -1481,6 +1571,23 @@
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <div class="tech-icons-row" aria-label="Tool icons scroll list">
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/power-bi.png" alt="Power BI"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/canva.png" alt="Canva"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/visual-studio-code-2019.png" alt="VS Code"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/react-native.png" alt="React"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/python.png" alt="Python"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/wordpress.png" alt="WordPress"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/figma.png" alt="Figma"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/microsoft-excel-2019.png" alt="Microsoft Excel"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/behance.png" alt="Behance"></div>
+      <div class="tech-icon"><img src="https://img.icons8.com/color/96/000000/shopify--v1.png" alt="Shopify E-Commerce"></div>
+    </div>
+    <div class="icon-separator" aria-hidden="true"></div>
+    <p class="tech-icons-note">I use these tools and can support you with any of them.</p>
+  </div>
 
   <section id="contact" class="contact-section">
     <div class="container contact-container">
